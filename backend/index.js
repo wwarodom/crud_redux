@@ -8,6 +8,10 @@ let songs = [{id: 1, name: 'Wonderful tonight', price: 99},
     {id: 2, name: 'Morning star', price: 66},
     {id: 3, name: 'Bohemian Rhapsody', price: 253},
 ]
+// let guitars = [{id: 1, name: 'Ibanez RG 3120', price: 30199},
+//     {id: 2, name: 'Fender Fat Strat Texas Special', price: 40266},
+//     {id: 3, name: 'Gibson Lespaul Standard', price: 250033},
+// ]
 
 app.use(cors())
 app.use('/api', bodyParser.json() ,router)

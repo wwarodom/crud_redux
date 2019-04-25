@@ -11,7 +11,7 @@ class Song extends Component {
 
     renderSong = (name, price) => {
         if ( this.props.songsData )
-            return  this.props.songsData.songs.map( (song,index) =>
+            return  this.props.songsData.searchResults.map( (song,index) =>
                 (<li key={index}>
                     {song.id} {song.name} {song.price}
                     <button onClick={()=> this.props.getSong(song.id)}>Edit</button>
@@ -27,7 +27,12 @@ class Song extends Component {
     render() {
         return (
             <div style={{margin: '20px'}}>
-                <h2>CRUD Song lists</h2>
+                <h2>CRUD Song list</h2>
+
+                Search: <input type="text" name="search"
+                               onChange={this.props.handleChange}
+                               value={this.props.search} />
+
                 <ul>
                     { this.renderSong(this.props.name,this.props.price)}
                 </ul>
@@ -40,6 +45,10 @@ class Song extends Component {
                               value={this.props.price}/> <br/>
                 <button onClick={() => this.props.addSong(this.props.name, this.props.price)}>Add</button>
                 {(this.props.songsData.message)?this.props.songsData.message:'' }
+
+
+
+
             </div>
         );
     }
@@ -57,12 +66,12 @@ const mapStateToProps = ( action  ) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getSongs:             () => store.dispatch(getSongs()),
-        addSong:    (name,price) => store.dispatch(addSong({name,price})),
-        getSong:            (id) => store.dispatch(getSong(id)),
-        updateSong:         (id,name, price) => store.dispatch(updateSong(id,name,price)),
-        deleteSong:         (id) => store.dispatch(deleteSong(id)),
-        handleChange:       (e) => store.dispatch(handleChange(e))
+        getSongs:                 () => store.dispatch(getSongs()),
+        addSong:        (name,price) => store.dispatch(addSong({name,price})),
+        getSong:                (id) => store.dispatch(getSong(id)),
+        updateSong: (id,name, price) => store.dispatch(updateSong(id,name,price)),
+        deleteSong:             (id) => store.dispatch(deleteSong(id)),
+        handleChange:            (e) => store.dispatch(handleChange(e))
     }
 }
 
