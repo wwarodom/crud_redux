@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Bear from "./pages/song"
+import Song from "./pages/song"
 import {Provider} from 'react-redux'
 import logger from 'redux-logger'
 import {createStore, applyMiddleware} from 'redux'
@@ -14,7 +14,7 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <Bear />
+                <Song />
             </Provider>
         );
     }

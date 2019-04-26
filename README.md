@@ -1,2 +1,2 @@
 # crud_redux
-CRUD React Redux Example
+CRUD React Redux NodeJS Express Example
